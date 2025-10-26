@@ -1,7 +1,5 @@
 #pragma semicolon 1
 
-#define CVAR_RESET_VAL 0
-
 void LoadBlacklistFiles() {
 	if (g_AngleSnapMapBlacklist == null) {
 		g_AngleSnapMapBlacklist = new ArrayList(ByteCountToCells(64));
@@ -23,7 +21,7 @@ void LoadBlacklistFiles() {
 	kv.Rewind();
 	if (!kv.JumpToKey("anglesnap",false)) {
 		char map[64];
-		dp {
+		do {
 			kv.GetString(NULL_STRING,map,sizeof(map));
 			TrimString(map);
 			if (map[0]=='\0') continue;
@@ -67,7 +65,5 @@ void CheckAndApplyBlacklist() {
 		stac_max_aimsnap_detections.SetInt(CVAR_RESET_VAL);
 	}
 
-
-	delete RegexError;
 	delete pattern;
 }

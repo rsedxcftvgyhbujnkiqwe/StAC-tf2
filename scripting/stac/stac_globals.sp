@@ -2,6 +2,8 @@
 // formerly custom defined, now at 101 as of unrestricted_maxplayers update
 #define TFMAXPLAYERS 101
 
+#define CVAR_RESET_VAL 0
+
 /********** GLOBAL VARS **********/
 // Regex steamidRegex;
 

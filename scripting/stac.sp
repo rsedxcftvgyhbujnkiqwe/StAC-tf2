@@ -95,6 +95,8 @@ public Plugin myinfo =
 #include "stac/stac_memory.sp"
 // if it ain't broke, don't fix it. jtanz has written a great backtrack patch.
 #include "stac/jay_backtrack_patch.sp"
+// map blacklist
+#include "stac/stac_blacklist.sp"
 
 /********** PLUGIN LOAD & UNLOAD **********/
 

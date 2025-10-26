@@ -3,3 +3,9 @@
 
 ./stac.smx
 *sublime*
+
+scripting/
+
+!scripting/stac.sp
+!scripting/stac/
+!scripting/stac/*
