@@ -186,6 +186,9 @@ public void OnPluginStart()
 
     // jaypatch
     OnPluginStart_jaypatch();
+
+    // load blacklist cfg
+    LoadBlacklistFiles();
 }
 
 

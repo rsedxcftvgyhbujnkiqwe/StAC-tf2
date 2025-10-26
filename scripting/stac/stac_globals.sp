@@ -162,6 +162,8 @@ char os                [16];
 // client has waited the full 60 seconds for their first convar check
 bool hasWaitedForCvarCheck[TFMAXPLAYERS+1];
 
+ArrayList g_AngleSnapMapBlacklist;
+int g_PrevAimSnapValue;
 
 /*
 TODO: point_worldtext entities

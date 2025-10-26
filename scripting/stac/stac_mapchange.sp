@@ -31,7 +31,12 @@ public void OnMapStart()
         }
     }
 
+    // only reset if currently set to reset val
+    if (stac_max_aimsnap_detections.IntValue == CVAR_RESET_VAL) {
+	    stac_max_aimsnap_detections.SetInt(g_PrevAimSnapValue);
+    }
 
+    CheckAndApplyBlacklist();
 /*
     int ent = -1;
     while ((ent = FindEntityByClassname(ent, "point_worldtext")) != -1)

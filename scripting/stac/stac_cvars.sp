@@ -50,6 +50,7 @@ void initUsercmdCvars()
         false,
         _
     );
+    g_PrevAimSnapValue = stac_max_aimsnap_detections;
 
     // psilent detections
     stac_max_psilent_detections =
