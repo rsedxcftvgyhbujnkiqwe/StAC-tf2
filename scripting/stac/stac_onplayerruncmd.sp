@@ -722,6 +722,15 @@ void psilentCheck(int cl)
     {
         return;
     }
+
+    // high ping clients seem far more likely to produce bunk detections. probably related to interp, i dunno, i don't care
+    // require a bigger snap before counting these ppls snaps as detections
+    // Why 205? it's slightly bigger than what we set sv_maxunlag to :smilecat:
+    if (pingFor[cl] >= 205.0 && aDiffReal <= 2.5)
+    {
+        return;
+    }
+
     int userid = GetClientUserId(cl);
     pSilentDetects[cl]++;
     // have this detection expire in 30 minutes
@@ -1246,6 +1255,7 @@ bool IsUserLagging(int cl, bool checkcmdnum = true)
 float CalcAngDeg(float array1[3], float array2[3])
 {
     // ignore roll
+    // yes this mutates state. i do not care
     array1[2] = 0.0;
     array2[2] = 0.0;
     return SquareRoot(GetVectorDistance(array1, array2, true));
@@ -1310,7 +1320,7 @@ stock bool DidRecentlyDoInterestingAction(int cl)
         // - theoretically might catch people w/ bad cheats with aimkey on `r`
         ||  clbuttons[cl][0] & IN_RELOAD
         ||  clbuttons[cl][1] & IN_RELOAD
-        ||  clbuttons[cl][3] & IN_RELOAD
+        ||  clbuttons[cl][2] & IN_RELOAD
     )
     {
         return true;
